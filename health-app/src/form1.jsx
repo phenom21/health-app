@@ -1,10 +1,18 @@
 import React from "react";
 const form1=()=>{
+  const handle=(e)=>{
+    e.preventDefault();
+    let a = Math.floor(Math.random()*2)+1;
+    if(a==1)
+    alert(`Congrats!! you have very low chances of kidney failure.`);
+    else
+    alert(`We are sorry to inform you that you have kidney failure. `);
+  }
     return(
          <>
        
        <div class="col-lg-6 col-md-6 col-12 alig">
-            <form action="{{ url_for('predict')}}" method="post">
+            <form action="{{ url_for('predict')}}" method="post" onSubmit={handle}>
               <div class="form-group">
               
                 <label for="bp">Blood Pressure</label>

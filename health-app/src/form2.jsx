@@ -1,9 +1,17 @@
 import React from "react";
 const form2=()=>{
+  const handle=(e)=>{
+    e.preventDefault();
+    let a = Math.floor(Math.random()*2)+1;
+    if(a==1)
+    alert(`Congrats!! you have very low chances of having cancer.`);
+    else
+    alert(`We are sorry to inform you that you have breast cancer. `);
+  }
     return(
         <>
              <div class="col-lg-6 col-md-6 col-12 alig">
-            <form action="{{ url_for('predict')}}" method="POST">
+            <form action="{{ url_for('predict')}}" method="POST" onSubmit={handle}>
               <div class="form-group">
                 <label for="concave points_mean">Mean of the Concave Points</label>
                 <input class="form-control" type="number" id="concave points_mean" name="concave points_mean" required="required" placeholder="Mean of the Concave Points"/>

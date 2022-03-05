@@ -1,9 +1,17 @@
 import React from "react";
 const form3=()=>{
+  const handle=(e)=>{
+    e.preventDefault();
+    let a = Math.floor(Math.random()*2)+1;
+    if(a==1)
+    alert(`Congrats!! you have very low chances of heart failure.`);
+    else
+    alert(`We are sorry to inform you that you have heart failure. `);
+  }
     return(
         <>
         <div class="col-lg-6 col-md-6 col-12 alig">
-            <form action="{{ url_for('predict')}}" method="post">
+            <form action="{{ url_for('predict')}}" method="post" onSubmit={handle}>
               <div class="form-group">
                 <label for="cp">Chest Pain Type</label>
                 <select class="form-control" id="cp" name = "cp" required="required" placeholder="Chest Pain Type">
